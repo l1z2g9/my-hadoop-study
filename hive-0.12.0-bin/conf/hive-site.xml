@@ -129,7 +129,7 @@
 
 <property>
   <name>javax.jdo.option.ConnectionURL</name>
-  <value>jdbc:derby:;databaseName=metastore_db;create=true</value>
+  <value>jdbc:derby:;databaseName=/home/prls/hive-0.12.0-bin/metastore_db;create=true</value>
   <description>JDBC connect string for a JDBC metastore</description>
 </property>
 
@@ -1129,7 +1129,7 @@
 
 <property>
   <name>hive.cluster.delegation.token.store.zookeeper.connectString</name>
-  <value>localhost:2181</value>
+  <value>mars01:2181</value>
   <description>The ZooKeeper token store connect string.</description>
 </property>
 
@@ -1330,7 +1330,7 @@
 
 <property>
   <name>hive.zookeeper.quorum</name>
-  <value></value>
+  <value>mars01</value>
   <description>The list of zookeeper servers to talk to. This is only needed for read/write locks.</description>
 </property>
 
@@ -1997,7 +1997,7 @@
 
 <property>
   <name>hive.server2.thrift.sasl.qop</name>
-  <value>auth</auth>
+  <value>auth</value>
   <description>Sasl QOP value; Set it to one of following values to enable higher levels of
      protection for hive server2 communication with clients.
       "auth" - authentication only (default)
@@ -2009,7 +2009,7 @@
 
 <property>
   <name>hive.metastore.schema.verification</name>
-  <value>true</value>
+  <value>false</value>
    <description>
    Enforce metastore schema version consistency.
    True: Verify that version information stored in metastore matches with one from Hive jars.  Also disable automatic
