@@ -1,0 +1,51 @@
+drop table if exists hbase_table_1;
+CREATE TABLE hbase_table_1(key int, value string) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES ("hbase.columns.mapping" = ":key,cf1:val")
+TBLPROPERTIES ("hbase.table.name" = "xyz");
+
+
+hive --auxpath /home/prls/hive-0.11.0-bin/lib/hive-hbase-handler-0.11.0.jar /home/prls/hbase-0.96.0-hadoop1/lib/hbase-common-0.96.0-hadoop1.jar -hiveconf hbase.zookeeper.quorum=mars01
+
+
+hive -hiveconf hbase.master=mars01:60000
+
+hive -hiveconf hive.root.logger=DEBUG,console -hiveconf hbase.zookeeper.quorum=mars01
+
+hive --auxpath /home/prls/hbase-0.96.0-hadoop1/lib 
+
+INSERT OVERWRITE TABLE hbase_table_2 SELECT * FROM invites where ds = '12';
+INSERT into TABLE hbase_table_1 SELECT * FROM pokes WHERE foo=98;
+
+
+
+-------CREATE TABLE user (
+  userId BIGINT,
+  type INT,
+  level TINYINT,
+  date String
+)
+COMMENT 'User Infomation'
+
+
+CREATE EXTERNAL TABLE user3 (
+  userId BIGINT,
+  type INT,
+  level TINYINT,
+  date String
+)
+COMMENT 'User Infomation'
+LOCATION '/user/prls/input/';
+
+
+load data inpath '/user/prls/data.csv' into table user3;
+
+create table 
+
+
+
+sqoop import --connect "jdbc:oracle:thin:@(description=(address=(protocol=tcp)(host=kwb-scan)(port=1521))(connect_data=(service_name=kwbrac)))" --username dhdba --password dhdba123 --table dhdba.dh_user --verbose --columns userid,password --num-mappers 3 --split-by userid
+
+
+sqoop import --connect "jdbc:oracle:thin:@(description=(address=(protocol=tcp)(host=kwb-scan)(port=1521))(connect_data=(service_name=kwbrac)))" --username dhdba --password dhdba123 --table dh_user --verbose --columns userid,password --num-mappers 3 --split-by userid --hbase-create-table --hbase-row-key userid --column-family dh --hbase-table dh_user
+
