@@ -27,7 +27,7 @@
 
 # The java implementation to use.  Java 1.6 required.
 # export JAVA_HOME=/usr/java/jdk1.6.0/
-export JAVA_HOME=/usr/IBM/WebSphere/AppServer/java
+export JAVA_HOME=/usr/java6
 
 # Extra Java CLASSPATH elements.  Optional.
 # export HBASE_CLASSPATH=

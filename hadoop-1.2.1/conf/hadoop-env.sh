@@ -6,7 +6,7 @@
 # remote nodes.
 
 # The java implementation to use.  Required.
-export JAVA_HOME=/usr/IBM/WebSphere/AppServer/java
+export JAVA_HOME=/usr/java6
 
 # Extra Java CLASSPATH elements.  Optional.
 # export HADOOP_CLASSPATH=
